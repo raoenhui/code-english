@@ -1,11 +1,11 @@
 # code-english
 程序员英语词汇
 
-#技术站
+# 技术站
 
 Nextjs+express+MongoDB
 
-网站：[http://english.frontendx.cn](http://nglish.frontendx.cn)
+网站：[http://en.frontendx.cn](http://en.frontendx.cn)
 
 正在更新，尽情期待...
 
