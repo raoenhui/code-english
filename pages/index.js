@@ -11,7 +11,7 @@ export default class extends React.Component {
       return {list}
     }
 
-    const {list} = await superagent.get('http://localhost:4001/api')
+    const {list} = await superagent.get('http://localhost:5001/api')
       .then(res => res.body)
     return {list}
   }
@@ -41,7 +41,7 @@ export default class extends React.Component {
 
   remove(_id) {
     return ev => {
-      superagent.del(`http://localhost:4001/api/${_id}`)
+      superagent.del(`http://localhost:5001/api/${_id}`)
         .then(() => {
           const state = this.state || {}
           const list = this.state.list || this.props.list || []
@@ -61,7 +61,7 @@ export default class extends React.Component {
       this.setState(Object.assign({}, this.state, {
         formData: {author: '', title: '', cn: '', en: ''}
       }))
-      superagent.post('http://localhost:4001/api', formData)
+      superagent.post('http://localhost:5001/api', formData)
         .then(res => {
           const state = this.state || {}
           const list = this.state.list || this.props.list || []
