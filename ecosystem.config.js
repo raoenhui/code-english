@@ -29,7 +29,7 @@ module.exports = {
       // GIT remote
       repo: "git@github.com:raoenhui/code-english.git",
       // path in the server
-      path: "/ice/code-english",
+      path: "/ice/pm2/code-english",
       // Pre-setup command or path to a script on your local machine
       "pre-setup": "echo 'This is a pre-setup command'",
       // Post-setup commands or path to a script on the host machine
