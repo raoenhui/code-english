@@ -31,7 +31,7 @@ module.exports = {
       // path in the server
       path: "/ice/pm2/code-english",
       // Pre-setup command or path to a script on your local machine
-      "pre-setup": "echo 'This is a pre-setup command'",
+      "pre-setup": "apt-get install git ; ls -la",
       // Post-setup commands or path to a script on the host machine
       // eg: placing configurations in the shared dir etc
       "post-setup": "ls -la",
