@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: "nextcn",
+    name: "code-english",
     script: "./app.js",
     output: './log/out.log',
     error: './log/error.log',
@@ -38,7 +38,7 @@ module.exports = {
       // pre-deploy action
       "pre-deploy-local": "echo 'This is a pre-deploy-local command'",
       // post-deploy action
-      "post-deploy": "npm install"
+      "post-deploy": "npm install && pm2 reload ecosystem.config.js --env production"
     },
   }
 }
