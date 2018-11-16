@@ -14,16 +14,24 @@ const app = Next({ dev })
 const handle = app.getRequestHandler()
 
 const MONGO_URL = Mongo.MongoAddress;
-const PORT = 5001
+const PORT = 5001;
+const AllowCrossDomain = function (req, res, next) {
+  //自定义中间件，设置跨域需要的响应头。
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Credentials','true');
+  next();
+};
 
 co(function * () {
   yield app.prepare()
 
-  console.log(`Connecting to ${MONGO_URL}`)
+  console.log(`Connecting to mongo`)
   const db = yield MongoClient.connect(MONGO_URL)
 
   const server = express()
-
+  server.use(AllowCrossDomain);//运用跨域的中间件
   server.use(body.json())
   server.use((req, res, next) => {
     req.db = db
@@ -36,5 +44,5 @@ co(function * () {
   })
 
   server.listen(PORT)
-  console.log(`Listening on ${PORT}`)
+  console.log(`Listening on ${PORT},open: localhost:${PORT}`);
 }).catch(error => console.error(error.stack))

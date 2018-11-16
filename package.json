@@ -19,7 +19,8 @@
   "scripts": {
     "test": "node .",
     "dev": "node app",
-    "start": "pm2 start app.js --name 'code-english -p 5001'"
+    "start": "pm2 start app.js --name 'code-english -p 5001'",
+    "deploy":"pm2 deploy production"
   },
   "standard": {
     "global": [

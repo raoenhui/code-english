@@ -104,9 +104,9 @@ export default class extends React.Component {
             {
               list.map(book => (
                 <div key={book._id} className="line-con">
-                  {/*<span className="remove" onClick={this.remove(book._id)}>*/}
-                    {/*&times;*/}
-                  {/*</span>&nbsp;*/}
+                  <span className="remove" onClick={this.remove(book._id)}>
+                    X
+                  </span>&nbsp;
                   <div className="en">
                     {book.en}
                   </div>
@@ -131,10 +131,10 @@ export default class extends React.Component {
             margin-right: auto;
           }
           h1 {
-            color: #ccbc1d;
+            color: #E971BE;
           }
           button {
-            background-color: #ff257b;
+            background-color: #E971BE;
             color: #ffffff;
             font-weight: bold;
             border: 0px;
@@ -156,7 +156,7 @@ export default class extends React.Component {
           }
           .remove {
             cursor: pointer;
-            color: #ff257b;
+            color: #E971BE;
             font-size: 1.5em;
           }
           .line-con{
