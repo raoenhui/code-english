@@ -1,10 +1,7 @@
 module.exports = {
   apps : [{
-    name: "code-english",
+    name: "code-english5001",
     script: "./app.js",
-    output: './log/out.log',
-    error: './log/error.log',
-    log: './log/combined.outerr.log',
     env: {
       NODE_ENV: "development",
     },
@@ -38,7 +35,7 @@ module.exports = {
       // pre-deploy action
       "pre-deploy-local": "echo 'This is a pre-deploy-local command'",
       // post-deploy action
-      "post-deploy": "npm install && pm2 reload ecosystem.config.js --env production"
+      "post-deploy": "npm install && npm run build && pm2 reload ecosystem.config.js --env production"
     },
   }
 }

@@ -18,8 +18,9 @@
   },
   "scripts": {
     "test": "node .",
+    "build": "next build",
     "dev": "node app",
-    "start": "pm2 start app.js --name 'code-english -p 5001'",
+    "start": "next build && NODE_ENV=production pm2 start app.js --name 'code-english -p 5001'",
     "setupdep":"pm2 deploy production setup",
     "deploy":"pm2 deploy production"
   },
