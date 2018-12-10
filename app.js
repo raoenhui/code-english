@@ -18,14 +18,17 @@ const PORT = 5001;
 const AllowCrossDomain = function (req, res, next) {
   //自定义中间件，设置跨域需要的响应头。
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   res.header('Access-Control-Allow-Credentials','true');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
   next();
 };
 
 co(function * () {
-  yield app.prepare()
+  yield app.prepare();
 
   console.log(`Connecting to mongo`)
   const db = yield MongoClient.connect(MONGO_URL)
