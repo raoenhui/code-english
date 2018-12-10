@@ -5,24 +5,33 @@
   "author": "raoenhui <raoenhui@jd.com>",
   "license": "ISC",
   "dependencies": {
+    "@jd/jmfe-node-jsf": "^1.0.1",
+    "@jmfe/tower": "^0.1.17",
     "archetype-js": "0.6.1",
+    "axios": "^0.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
     "body-parser": "1.17.1",
     "co": "^4.6.0",
     "express": "^4.15.2",
+    "fs": "^0.0.1-security",
+    "isomorphic-unfetch": "^3.0.0",
     "mongodb": "^2.2.26",
     "next": "^7.0.2",
+    "pm2": "^2.10.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "superagent": "^3.5.2",
-    "pm2": "^2.10.4"
+    "superagent": "^3.5.2"
   },
   "scripts": {
     "test": "node .",
     "build": "next build",
     "dev": "node app",
     "start": "next build && NODE_ENV=production pm2 start app.js --name 'code-english -p 5001'",
-    "setupdep":"pm2 deploy production setup",
-    "deploy":"pm2 deploy production"
+    "setupdep": "pm2 deploy production setup",
+    "deploy": "pm2 deploy production"
   },
   "standard": {
     "global": [

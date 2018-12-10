@@ -7,17 +7,17 @@ export default class extends React.Component {
       const {db} = req
       const list = await db.collection('Book').find().sort({createdAt: -1})
         .toArray()
-      debugger
       return {list}
     }
 
     const {list} = await superagent.get('http://localhost:5001/api')
       .then(res => res.body)
+    console.info("list",list)
     return {list}
   }
 
   constructor() {
-    super()
+    super();
     this.state = {formData: {author: '', title: '', cn: '', en: ''}}
   }
 
