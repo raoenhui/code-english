@@ -47,5 +47,5 @@ co(function * () {
   })
 
   server.listen(PORT)
-  console.log(`Listening on ${PORT},open: localhost:${PORT}`);
+  console.log(`Listening on ${PORT},open: 127.0.0.1:${PORT}`);
 }).catch(error => console.error(error.stack))
