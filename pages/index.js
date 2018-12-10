@@ -97,7 +97,7 @@ export default class extends React.Component {
           </form>
         </div>
         <h1>
-          单词列表
+          中英单词列表
         </h1>
         <div id="reading-list">
           <ul>
