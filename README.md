@@ -9,7 +9,7 @@ Nextjs+express+MongoDB
 
 # 启动
 
-在更目录新建`env.js`,输入
+在根目录新建`env.js`,输入
 ```javascript
 //输入你的mongoDb地址
 module.exports = {'MongoAddress':'mongodb://localhost:27017/next'}
