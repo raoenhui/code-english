@@ -7,7 +7,22 @@ Nextjs+express+MongoDB
 
 网站：[http://en.frontendx.cn](http://en.frontendx.cn)
 
-正在更新，尽情期待...
+# 启动
+
+在更目录新建`env.js`,输入
+```javascript
+//输入你的mongoDb地址
+module.exports = {'MongoAddress':'mongodb://localhost:27017/next'}
+```
+命令
+```bash
+# 安装
+yarn
+# 开发启动
+npm run dev
+# 生成打包
+npm run build
+```
 
 
 ## HTML
@@ -134,7 +149,7 @@ Nextjs+express+MongoDB
 |  `<wbr>`  |  	定义可能的换行符。   |  
 |  `<xmp>`  |  	不赞成使用。定义预格式文本。   |  
 
-
+正在更新，尽情期待...  
 
 
 > js\css\java正在更新，尽情期待...

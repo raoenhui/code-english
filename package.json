@@ -7,14 +7,14 @@
   "dependencies": {
     "archetype-js": "0.6.1",
     "body-parser": "1.17.1",
-    "co": "^4.6.0",
-    "express": "^4.15.2",
-    "mongodb": "^2.2.26",
-    "next": "^7.0.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "superagent": "^3.5.2",
-    "pm2": "^2.10.4"
+    "co": "4.6.0",
+    "express": "4.15.2",
+    "mongodb": "2.2.26",
+    "next": "7.0.2",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
+    "superagent": "3.5.2",
+    "pm2": "2.10.4"
   },
   "scripts": {
     "test": "node .",
@@ -35,3 +35,4 @@
     ]
   }
 }
+           
