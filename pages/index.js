@@ -1,23 +1,24 @@
 import React from 'react'
 import * as superagent from 'superagent'
+import Link from 'next/link'
 
 export default class extends React.Component {
-  static async getInitialProps({req}) {
+  static async getInitialProps({ req }) {
     if (req) {
-      const {db} = req
-      const list = await db.collection('Book').find().sort({createdAt: -1})
+      const { db } = req
+      const list = await db.collection('Book').find().sort({ createdAt: -1 })
         .toArray()
-      return {list}
+      return { list }
     }
 
-    const {list} = await superagent.get('/api')
+    const { list } = await superagent.get('/api')
       .then(res => res.body)
-    return {list}
+    return { list }
   }
 
   constructor() {
     super()
-    this.state = {formData: {author: '', title: '', cn: '', en: ''}}
+    this.state = { formData: { author: '', title: '', cn: '', en: '' } }
   }
 
   setForm(prop) {
@@ -54,12 +55,14 @@ export default class extends React.Component {
 
   add() {
     return ev => {
+      console.log('不能为空')
       ev.preventDefault()
       const state = this.state || {}
       const formData = state.formData || {}
       this.setState(Object.assign({}, this.state, {
-        formData: {author: '', title: '', cn: '', en: ''}
+        formData: { author: '', title: '', cn: '', en: '' }
       }))
+      if(!this.state.en) alert('不能为空')
       superagent.post('/api', formData)
         .then(res => {
           const state = this.state || {}
@@ -72,12 +75,16 @@ export default class extends React.Component {
     }
   }
 
+  _test(){
+    console.log('_test')
+  }
+
   render() {
     const list = this.state.list || this.props.list
-    const {formData} = this.state
+    const { formData } = this.state
     return (
       <div id="container">
-        <h1>
+        <h1 onClick={this._test}>
           新单词
         </h1>
         <div id="input-book">
@@ -86,12 +93,12 @@ export default class extends React.Component {
               type="text"
               onChange={this.setForm('en')}
               value={formData.en}
-              placeholder="英文"/>
+              placeholder="英文" />
             <input
               type="text"
               onChange={this.setForm('cn')}
               value={formData.cn}
-              placeholder="中文"/>
+              placeholder="中文" />
             <button disabled={this.isFormInvalid()}>Add</button>
           </form>
         </div>
@@ -101,7 +108,7 @@ export default class extends React.Component {
         <div id="reading-list">
           <ul>
             {
-              list.map(book => (
+              list && list.map(book => (
                 <div key={book._id} className="line-con">
                   <span className="remove" onClick={this.remove(book._id)}>
                     X
@@ -120,6 +127,9 @@ export default class extends React.Component {
             }
           </ul>
         </div>
+        <Link  href="/about">
+          <a>关于</a>
+        </Link>
         <style jsx>{`
           div {
             font-family: 'Helvetica', 'sans-serif';
